@@ -19,7 +19,9 @@ def mkdirs(path):
 def calc_f1(y_true, y_pre, threshold=0.5):
     y_true = y_true.view(-1).cpu().detach().numpy().astype(np.int)
     y_pre = y_pre.view(-1).cpu().detach().numpy() > threshold
-    return f1_score(y_true, y_pre)
+    f1 = f1_score(y_true, y_pre)
+    print(f1,y_pre)
+    return f1
 
 #打印时间
 def print_time_cost(since):
